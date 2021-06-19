@@ -1,0 +1,53 @@
+import java.util.*;
+import java.util.Scanner;
+class GFG {
+     
+    static int findMinDiff(int arr[], int n,
+                                    int m)
+    {
+        
+        if (m == 0 || n == 0)
+            return 0;
+      Arrays.sort(arr);
+      
+        if (n < m)
+           return -1;
+      
+        // Largest number of chocolates
+        int min_diff = Integer.MAX_VALUE;
+      
+         
+        for (int i = 0; i + m - 1 < n; i++)
+         {
+            int diff = arr[i+m-1] - arr[i];
+            if (diff < min_diff)
+                min_diff = diff;
+        }
+        return min_diff;
+    }
+     public static void main(String[] args)
+    {
+        int arr[] = {7980, 22349, 999, 2799, 229900, 11101,
+                    9999, 2195, 9800, 4999};
+                     Scanner scan = new Scanner(System.in);
+         
+        int n = arr.length;
+        System.out.println("Number of employees :" );
+        int m = scan.nextInt();
+        System.out.println("The Goodies and prices :\n");
+        System.out.println("Fitbit Plus: 7980 ");
+        System.out.println("IPods: 22349  ");
+        System.out.println("MI Band: 999 :");
+        System.out.println("Cult Pass: 2799  ");
+        System.out.println("Macbook Pro: 229900  ");
+        System.out.println("Digital Camera: 11101  ");
+        System.out.println("Microwave Oven: 9800");
+        System.out.println("Alexa: 9999");
+        System.out.println("Sandwich Toaster: 2195");
+        System.out.println("Scale: 4999 \n");
+        System.out.println("The goodies selected for distribution are:");
+        System.out.println("And the difference between the choosen goodie with highest price and the lowest price is "
+                + findMinDiff(arr, n, m));
+             
+    }
+}
